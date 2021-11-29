@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TheForum</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+   @* <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/TheForum.NET.styles.css" asp-append-version="true" />*@
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/sass/style.css" />
+  
+</head>
+
+<body class="bg-light">
+  
+     <header id="header-id">
+      <div
+        class=""
+        style="
+          background: center/cover
+            url('https://cdn.pixabay.com/photo/2016/07/29/19/19/railway-1555348_960_720.jpg');
+        "
+      >
+        <div class="container-fluid p-5 text-center">
+          <nav class="navbar navbar-expand-md navbar-light">
+            <div
+              class="
+                navbar-collapse
+                collapse
+                w-100
+                order-1 order-md-0
+                dual-collapse2
+              "
+            >
+            </div>
+            <div class="mx-auto order-0">
+              <button
+                class="navbar-toggler bg-light"
+                type="button"
+                data-toggle="collapse"
+                data-target=".dual-collapse2"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </div>
+            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+              <ul class="navbar-nav ml-auto">
+
+             @* <?php include("../App/View/header_display.php");?>
+              <li class="nav-item"><?php require_once("../App/View/logout_message.php");?></li>*@
+            </ul>
+          </div>
+        </nav>
+       <a href="" class="text-white text-decoration-none"><h1 id="title" class="display-4">Tracker</h1></a>
+      </div>
+    </div>
+    </header>
+
+<main class="mx-5">
+     @RenderBody()
+
+ 
+  </main>
+  <footer>
+  <div class="container-fluid" id="social-media">
+        <ul class="d-flex justify-content-center py-5 flex-wrap">
+            <li class="p-3 mr-4"><a href="#"><i class="fab fa-instagram text-white"></i></a></li>
+        <li class="p-3 mr-4"><a href="#"><i class="fab fa-facebook-f text-white"></i></a></li>
+        <li class="p-3 mr-4"><a href="#"><i class="fab fa-apple text-white"></i></a></li>
+        <li class="p-3 mr-4"><a href="#"><i class="fab fa-twitter text-white"></i></a></li>
+        <li class="p-3 mr-4"><a href="#"><i class="fab fa-youtube text-white"></i></a></li>
+        <li class="p-3 mr-4"><a href="#"><i class="fab fa-github text-white"></i></a></li>
+        <li class="p-3 mr-4"><a href="#"><i class="fab fa-whatsapp text-white"></i></a></li>
+      </ul>
+    </div>
+    <div class="container-fluid bg-dark my-n3">
+      <div class="row">
+        <div class="col-sm-12 col-md-3 col-lg-3">
+          <nav class="" aria-label="breadcrumb">
+            <ol class="breadcrumb bread-foot bg-dark align-text-bottom justify-content-xs-center">
+              <li class="breadcrumb-item bread-foot__item">
+                <a href="#" class="text-decoration-none">Home</a>
+              </li>
+              <li class="breadcrumb-item bread-foot__item" aria-current="page">Board index</li>
+            </ol>
+          </nav>
+        </div>
+        <div class="col-sm-12 col-md-9 col-lg-9">
+        <ul class="list-bottom d-flex justify-content-end align-items-center mt-2 flex-wrap justify-content-xs-center ">
+            <li class="mr-3"><a href="#" class="text-nowrap "><i class="p-2 fas fa-envelope"></i>Contact us</a></li>
+            <li class="mr-3"><a href="#" class="text-nowrap "><i class="p-2 fas fa-shield-alt"></i>The team</a></li>
+            <li class="mr-3"><a href="#" class="text-nowrap "><i class="p-2 fas fa-check"></i>Terms</a></li>
+            <li class="mr-3"><a href="#" class="text-nowrap "><i class="p-2 fas fa-lock"></i>Privacy</a></li>
+            <li class="mr-3"><a href="#" class="text-nowrap "><i class="p-2 fas fa-users"></i>Members</a></li>
+            <li class="mr-3"><a href="#" class="text-nowrap "><i class="p-2 fas fa-trash-alt"></i>Delete cookies</a></li>
+            <li class=""><a href="#" class="text-nowrap list-dark">All times are UTC</a></li>
+          </ul>
+          <a id="btn-back-to-top" class="btn btn-floating btn-lg" href="#header-id"><i class="fas fa-arrow-up"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+@*<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TheForum</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - TheForum - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>*@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+   
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

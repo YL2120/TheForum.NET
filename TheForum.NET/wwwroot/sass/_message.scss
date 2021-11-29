@@ -1,0 +1,37 @@
+﻿
+.col-3 {
+
+    .user-id {
+        font-size: 1rem;
+
+        strong {
+            font-size: 1rem;
+        }
+    }
+
+    .img-modifier {
+        overflow: hidden;
+        height: 100px;
+        width: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50px;
+
+        img {
+            width: auto;
+            height: inherit;
+        }
+    }
+}
+
+.col-9 {
+
+    .user-id {
+        font-size: 1rem;
+
+        i {
+            font-size: 1rem;
+        }
+    }
+}

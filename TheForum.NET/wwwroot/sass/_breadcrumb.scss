@@ -1,0 +1,43 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.bread-style {
+    background-color: white;
+    border-radius: 20px 20px 0 0;
+}
+
+.bread-item {
+    font-family: "Urbanist", sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+
+    a {
+        font-size: 2rem;
+
+        i {
+            font-size: 1.8rem;
+        }
+    }
+}
+
+.bread-foot {
+    background-color: #293133;
+}
+
+.bread-foot__item {
+    font-family: "Urbanist", sans-serif;
+    font-weight: 700;
+    color: #d473d4;
+    font-size: 1.2rem;
+
+    a {
+        font-size: 1.2rem;
+        color: #d473d4;
+
+        i {
+            font-size: 1.2rem;
+            color: #d473d4;
+        }
+    }
+}
+
+$breadcrumb-divider: quote("<");

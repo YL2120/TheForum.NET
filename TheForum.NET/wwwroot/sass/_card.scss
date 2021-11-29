@@ -1,0 +1,32 @@
+﻿.card {
+    width: 30rem;
+
+    .list-group-item {
+        font-size: 0.5rem;
+    }
+
+    .container {
+        margin: 1rem 0.3rem;
+    }
+
+    .topic,
+    .posts,
+    .date {
+        font-size: 1rem;
+    }
+}
+
+.card-container {
+    margin: auto;
+
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+#last-active-card {
+    width: 8rem;
+    height: auto;
+}
