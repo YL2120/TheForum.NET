@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation(); // automatic razor compilation
 
-builder.Services.AddDbContext<TheForumContext>(options => options.UseSqlServer(builder.Build().Configuration.GetConnectionString("TheForumContext")), ServiceLifetime.Scoped);
+builder.Services.AddDbContext<TheForumContext>(options => options.UseSqlServer(builder.Build().Configuration.GetConnectionString("TheForumContext")), ServiceLifetime.Scoped); // connection to the Db
 
 var app = builder.Build();
 

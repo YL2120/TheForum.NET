@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using TheForum.Data;
+using TheForum.Data.DataLayers;
 using TheForum.NET.Models;
 
 namespace TheForum.NET.Controllers
@@ -8,14 +10,18 @@ namespace TheForum.NET.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly TheForumContext context;
+        private BoardDataLayer boarddatalayer;
+
+        public HomeController(ILogger<HomeController> logger, TheForumContext context)
         {
             _logger = logger;
+            this.context = context;
         }
 
         public IActionResult Index()
         {
-            return View();
+            return View(this.boarddatalayer.DisplayAll());
         }
 
         public IActionResult Privacy()
