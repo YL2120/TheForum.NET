@@ -4,6 +4,8 @@ using Microsoft.Extensions.Configuration;
 using TheForum.Data.DataLayers;
 using Microsoft.AspNetCore.Identity;
 using TheForum.Data.Models;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using TheForum.NET.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,8 +13,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation(); // automatic razor compilation
 
+builder.Services.AddRazorPages();
 
 builder.Services.AddTransient<BoardDataLayer, BoardDataLayer>();
+builder.Services.AddTransient<IEmailSender, EmailSender>();
+
 builder.Services.AddDbContext<TheForumContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("TheForumContext")), ServiceLifetime.Scoped); // connection to the Db
 builder.Services.AddIdentity<ForumUser,IdentityRole>(options =>
 {
