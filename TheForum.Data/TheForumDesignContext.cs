@@ -17,7 +17,7 @@ namespace TheForum.Data
 
             var config = builder.Build();
 
-           /* var connectionString = config.GetConnectionString("TheForumContext");*/ // il lit notre appsetting
+          
 
             DbContextOptionsBuilder<TheForumContext> optionBuilder = new DbContextOptionsBuilder<TheForumContext>();
             optionBuilder.UseSqlServer(config.GetConnectionString("TheForumContext")); //c'est ici qu'on précise quel DB on va utiliser.

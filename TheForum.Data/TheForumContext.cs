@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using TheForum.Data.Models;
 
 namespace TheForum.Data
 {
-    public class TheForumContext : DbContext
+    public class TheForumContext : IdentityDbContext<ForumUser>
     {
 
 

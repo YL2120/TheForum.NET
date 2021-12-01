@@ -1,6 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using TheForum.Data;
 using Microsoft.Extensions.Configuration;
+using TheForum.Data.DataLayers;
+using Microsoft.AspNetCore.Identity;
+using TheForum.Data.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +11,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation(); // automatic razor compilation
 
-builder.Services.AddDbContext<TheForumContext>(options => options.UseSqlServer(builder.Build().Configuration.GetConnectionString("TheForumContext")), ServiceLifetime.Scoped); // connection to the Db
+
+builder.Services.AddTransient<BoardDataLayer, BoardDataLayer>();
+builder.Services.AddDbContext<TheForumContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("TheForumContext")), ServiceLifetime.Scoped); // connection to the Db
+builder.Services.AddIdentity<ForumUser,IdentityRole>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = true;
+    options.User.RequireUniqueEmail = true;
+})
+    .AddEntityFrameworkStores<TheForumContext>();builder.Services.AddDbContext<TheForumContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("TheForumContext")));
 
 var app = builder.Build();
 
@@ -24,8 +36,11 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication(); //Identity
 app.UseAuthorization();
+
+app.MapControllers();
+app.MapRazorPages();
 
 app.MapControllerRoute(
     name: "default",
