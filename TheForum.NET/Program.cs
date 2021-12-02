@@ -12,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation(); // automatic razor compilation
-
+builder.Services.AddMvc();
 builder.Services.AddRazorPages();
 
 builder.Services.AddTransient<BoardDataLayer, BoardDataLayer>();

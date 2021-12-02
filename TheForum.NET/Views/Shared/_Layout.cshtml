@@ -48,6 +48,7 @@
               <ul class="navbar-nav ml-auto">
 
               <partial name="_LoginPartial" />
+               
             </ul>
           </div>
         </nav>
@@ -58,8 +59,53 @@
 
 <main class="mx-5">
      @RenderBody()
-
- 
+     
+   <div class="col-md-3 col-lg-3 px-5">
+      @*    <?php include("../App/View/reduced_profile.php"); ?>*@
+           <!-- Search Bar -->
+         <form action="" method="" id="search-bar" class="form-inline flex-nowrap">
+          <input name="search" class="form-control w-100" type="search"
+          placeholder="Search" aria-label="Search">
+          <button class="btn btn-
+          info" type="submit"><i class="fas fa-search"></i>
+        </button>
+        <button class="btn btn-
+          info" type="submit"><i class="fas fa-cog"></i>
+        </button>
+          </form> 
+          <hr>
+          @*<?php include("../App/View/form_display.php") ?>*@
+          <div class="table-responsive mt-5">
+            <table id="table-side" class="table">
+              <thead class="thead">
+                <tr>
+                  <th scope="col" class="h3">Last posts</th>
+                </tr>
+              </thead>
+              <tbody class="bg-light d-flex justify-content-center">
+                <tr>
+                @*  <?php require("../App/View/last_posts.php"); ?>*@
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-responsive mt-5">
+            <table id="table-side" class="table">
+              <thead class="thead">
+                <tr>
+                  <th scope="col" class="h3">Last active user</th>
+                </tr>
+              </thead>
+              <tbody class="bg-light">
+                <tr class="d-flex justify-content-center flex-wrap">
+                @* <?php require("../App/View/last_active_display.php"); ?>*@
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+         </div>
+    </div>
   </main>
   <footer>
   <div class="container-fluid" id="social-media">
