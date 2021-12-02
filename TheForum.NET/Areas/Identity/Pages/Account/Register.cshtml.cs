@@ -88,6 +88,9 @@ namespace TheForum.NET.Areas.Identity.Pages.Account
             [Display(Name = "Profile Picture")]
             public byte[] ProfilePicture { get; set; }
 
+            [Display(Name = "Signature")]
+            public string Signature { get; set; }
+
 
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used

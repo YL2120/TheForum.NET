@@ -1,0 +1,92 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using TheForum.NET.Areas.Identity.Pages.Account
+@model RegisterModel
+@{
+}
+
+<ul class="d-flex align-items-center">
+                  <li class="h4 list-unstyled"><a class="h4 text-dark" href="#carousel-example" role="button" data-slide-to="0">Login</a></li>
+                  <li class="h4 ml-5"><a class="h4 text-dark" href="#carousel-example" role="button" data-slide-to="1">Register</a></li>
+                  <li class="h4 list-unstyled ml-5 ml-auto"><a class="h4 text-dark" href="#"><i class="fas fa-minus"></i></a>
+                </ul>
+      
+                <hr>
+      
+                <div id="carousel-example" class="carousel slide" data-interval="false">
+
+             
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <h3 class="mb-3">Login</h3>
+                            <form method="POST" id="login">
+                                <div class="form-group">
+                                  <label class="h4" for="username">Username</label>
+                                  <input type="text" class="form-control" name="username" id="username" aria-describedby="username" placeholder="Username">
+                                </div>
+                                <div class="form-group">
+                                  <label class="h4" for="exampleInputPassword1">Password</label>
+                                  <input name="password" type="password" class="form-control" id="password" placeholder="Password">
+                                </div>
+                                <div class="form-group form-check">
+                                  <input type="checkbox" class="form-check-input" id="remember">
+                                  <label class="form-check-label ml-2 h4" for="remember">Remember me</label>
+                                </div>
+                                <button name="login" id="submit" type="submit" class="btn btn-primary w-100 rounded-5">Login</button>
+                              </form>
+                        </div>
+                        <div class="carousel-item">
+                            <h3 class="mb-3">Register</h3>
+                             <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" enctype="multipart/form-data"> @*adding multipart/form-data because we have image files*@
+                                <div class="form-group">
+                                  <label class="h4"  asp-for="Input.FirstName" >First Name</label>
+                                  <input type="text" asp-for="Input.FirstName" class="form-control" autocomplete="firstname" placeholder="firstname" aria-required="true" >
+								   <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="h4"  asp-for="Input.LastName" >Last Name</label>
+                                  <input type="text" asp-for="Input.LastName" class="form-control" autocomplete="lastname" placeholder="lastname" aria-required="true" >
+								   <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                                  </div>
+                                <div class="form-group">
+                                   <label class="h4"  asp-for="Input.UserName" >Username</label>
+                                  <input type="text" asp-for="Input.UserName" class="form-control" autocomplete="username" placeholder="username" aria-required="true" >
+								   <span asp-validation-for="Input.UserName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                     <label class="h4"  asp-for="Input.Email" >LastName</label>
+                                    <input type="text" asp-for="Input.Email" class="form-control" autocomplete="email" placeholder="email" aria-required="true" >
+								   <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                  </div>
+								   <div class="form-group">
+                                     <label class="h4"  asp-for="Input.Signature" >LastName</label>
+                                    <input type="text" asp-for="Input.Signature" maxlength="100" class="form-control" autocomplete="signature" placeholder="signature" aria-required="true" >
+								   <span asp-validation-for="Input.Signature" class="text-danger"></span>
+                                  </div>
+								  <div class="form-group">
+                                     <label class="h4"  asp-for="Input.ProfilePicture" >Profile Picture</label>
+                                    <input class="form-control" type="file"
+                       accept=".png,.jpg,.jpeg,.gif,.tif"
+                       asp-for="Input.ProfilePicture"
+                       style="border:0px!important;padding: 0px;padding-top: 10px;padding-bottom: 30px;"
+                       onchange="document.getElementById('profilePicture').src = window.URL.createObjectURL(this.files[0])"  >
+								   <span asp-validation-for="Input.ProfilePicture" class="text-danger"></span>
+                                  </div>
+								   <div class="form-group">
+                                     <label class="h4"  asp-for="Input.Password" >Password</label>
+                                    <input asp-for="Input.Password" type="text" class="form-control" autocomplete="new-password" placeholder="password" aria-required="true" >
+								   <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                  </div>
+								  <div class="form-group">
+                                     <label class="h4"  asp-for="Input.ConfirmPassword" >Confirm Password</label>
+                                    <input asp-for="Input.ConfirmPassword" type="text" class="form-control" autocomplete="new-password" placeholder="password" aria-required="true" >
+								   <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                  </div>
+                                <button id="registerSubmit" name="register" type="submit" class="btn btn-primary w-100 rounded-5">Register</button>
+                              </form>
+                        </div>
+                    </div>
+                </div>
+
+          <hr>

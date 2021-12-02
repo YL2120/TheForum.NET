@@ -12,5 +12,8 @@ namespace TheForum.Data.Models
         public string LastName { get; set; } = null!;
 
         public byte[] ProfilePicture { get; set; } = null!;
+
+        [Column(TypeName = "nvarchar(100)")]
+        public string Signature { get; set; } = null!;
     }
 }
