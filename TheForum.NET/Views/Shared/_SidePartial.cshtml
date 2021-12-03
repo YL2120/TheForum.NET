@@ -1,46 +1,10 @@
-﻿@page
-@model RegisterConfirmationModel
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
 @{
-    ViewData["Title"] = "Register confirmation";
 }
 
-<h1>@ViewData["Title"]</h1>
-@{
-    if (@Model.DisplayConfirmAccountLink)
-    {
-    <p>
-    This app does not currently have a real email sender registered, see <a href="https://aka.ms/aspaccountconf">these docs</a> for how to configure a real email sender.
-    Normally this would be emailed: <a id="confirm-link" href="@Model.EmailConfirmationUrl">Click here to confirm your account</a>
-    </p>
-    }
-    else
-    {
-        
-         <div class="container-fluid" id="main-container">
-  <div class="container-fluid" id="breadcrumb">
-  <nav class="" aria-label="breadcrumb">
-    <ol class="breadcrumb bread-style align-text-bottom">
-      <li class="breadcrumb-item bread-item">
-        <a  asp-page="/Home/Index" class="text-decoration-none text-dark"
-          ><i class="fas fa-home"></i>Home</a>
-      </li>
-      <li class="breadcrumb-item bread-item active" aria-current="page">
-      <a  asp-page="/Account/Register" >Register</a>  
-      </li>
-      <li class="breadcrumb-item bread-item active" aria-current="page">
-        Confirmation
-      </li>
-    </ol>
-  </nav>
-      </div>
-      
-       <div class="row">
-       <div class="col-9">
-        <p class="h3">
-        Please check your email to confirm your account.
-        </p>
-        </div>
-        <div class="col-md-3 col-lg-3 px-5">
+ <div class="col-md-3 col-lg-3 px-5">
       @*    <?php include("../App/View/reduced_profile.php"); ?>*@
            <!-- Search Bar -->
          <form action="" method="" id="search-bar" class="form-inline flex-nowrap">
@@ -86,8 +50,3 @@
         </div>
          </div>
     </div>
-         
-        
-    }
-}
-
