@@ -82,6 +82,12 @@ namespace TheForum.NET.Areas.Identity.Pages.Account
 
             [Required]
             [Display(Name = "Username")]
+            [PageRemote(
+             ErrorMessage = "Username already exists",
+             HttpMethod = "post",
+             PageHandler = "CheckUsername",
+             AdditionalFields = "__RequestVerificationToken"
+             )]
             public string UserName { get; set; }
 
             
@@ -99,6 +105,12 @@ namespace TheForum.NET.Areas.Identity.Pages.Account
             [Required]
             [EmailAddress]
             [Display(Name = "Email")]
+            [PageRemote(         // remote input control
+             ErrorMessage = "Email address already exists",
+             HttpMethod = "post",
+             PageHandler = "CheckEmail",
+              AdditionalFields = "__RequestVerificationToken"
+             )]
             public string Email { get; set; }
 
             /// <summary>
@@ -121,6 +133,20 @@ namespace TheForum.NET.Areas.Identity.Pages.Account
             public string ConfirmPassword { get; set; }
         }
 
+        public JsonResult OnPostCheckEmail() //will verify the email provided in the textbox is already exists in the database or not.
+        {
+            var user = _userManager.FindByEmailAsync(Input.Email).Result;
+            var valid = user == null;
+            return new JsonResult(valid);
+        }
+
+        public JsonResult OnPostCheckUsername() //will verify the username provided in the textbox is already exists in the database or not.
+        {
+            var user = _userManager.FindByNameAsync(Input.UserName).Result;
+            var valid = user == null;
+            return new JsonResult(valid);
+        }
+
 
         public async Task OnGetAsync(string returnUrl = null)
         {
@@ -134,14 +160,32 @@ namespace TheForum.NET.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
+
+
                 var user = new ForumUser
                 {
                     UserName = Input.UserName,
                     FirstName = Input.FirstName,
                     LastName = Input.LastName,
                     Email = Input.Email,
-                    ProfilePicture = Input.ProfilePicture
+
                 };
+
+                // To convert the user uploaded Photo as Byte Array before save to DB
+               
+                if (Request.Form.Files.Count > 0)
+                {
+                    
+                    IFormFile file = Request.Form.Files.FirstOrDefault();
+                    using (var dataStream = new MemoryStream())
+                    {
+                        await file.CopyToAsync(dataStream);
+                        user.ProfilePicture = dataStream.ToArray();
+                    }
+                }
+
+
+                
 
                 //await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 //await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);

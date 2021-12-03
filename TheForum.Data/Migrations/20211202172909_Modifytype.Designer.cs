@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TheForum.Data;
 
 namespace TheForum.Data.Migrations
 {
     [DbContext(typeof(TheForumContext))]
-    partial class TheForumContextModelSnapshot : ModelSnapshot
+    [Migration("20211202172909_Modifytype")]
+    partial class Modifytype
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

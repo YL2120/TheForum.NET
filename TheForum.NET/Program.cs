@@ -23,9 +23,14 @@ builder.Services.AddIdentity<ForumUser,IdentityRole>(options =>
 {
     options.SignIn.RequireConfirmedAccount = true;
     options.User.RequireUniqueEmail = true;
+    
 })
-    .AddEntityFrameworkStores<TheForumContext>();builder.Services.AddDbContext<TheForumContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("TheForumContext")));
+    .AddEntityFrameworkStores<TheForumContext>().AddDefaultTokenProviders();
+
+builder.Services.AddAntiforgery(options =>
+{
+    options.FormFieldName = "Input.__RequestVerificationToken";
+});
 
 var app = builder.Build();
 
