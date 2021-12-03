@@ -3,8 +3,28 @@
 @{
     ViewData["Title"] = "Locked out";
 }
-
+  <div class="container-fluid" id="main-container">
+  <div class="container-fluid" id="breadcrumb">
+  <nav class="" aria-label="breadcrumb">
+    <ol class="breadcrumb bread-style align-text-bottom">
+      <li class="breadcrumb-item bread-item">
+        <a  asp-page="/Home/Index" class="text-decoration-none text-dark"
+          ><i class="fas fa-home"></i>Home</a>
+      </li>
+      <li class="breadcrumb-item bread-item active" aria-current="page">
+      <a  asp-page="/Account/Login" >Login</a>  
+      </li>
+      <li class="breadcrumb-item bread-item active" aria-current="page">
+        Lockout
+      </li>
+    </ol>
+  </nav>
+      </div>
+   <div class="row">
+       <div class="col-9">
 <header>
     <h1 class="text-danger">@ViewData["Title"]</h1>
-    <p class="text-danger">This account has been locked out, please try again later.</p>
+    <p class="text-danger h3">This account has been locked out, please try again later.</p>
 </header>
+</div>
+ <partial name="/Views/Shared/_SidePartial.cshtml" />

@@ -4,26 +4,57 @@
     ViewData["Title"] = "Profile";
     ViewData["ActivePage"] = ManageNavPages.Index;
 }
+  <div class="container-fluid" id="main-container">
+  <div class="container-fluid" id="breadcrumb">
+  <nav class="" aria-label="breadcrumb">
+    <ol class="breadcrumb bread-style align-text-bottom">
+      <li class="breadcrumb-item bread-item">
+        <a  asp-page="/Home/Index" class="text-decoration-none text-dark"
+          ><i class="fas fa-home"></i>Home</a>
+      </li>
+      <li class="breadcrumb-item bread-item active" aria-current="page">
+      <a  asp-page="/Account/Register" >My Profile</a>  
+      </li>
+    </ol>
+  </nav>
+      </div>
+ <div class="row">
+       <div class="col-9">     
+      <div class="row">
+          <div class="col-3">
+              <ul class="nav nav-pills flex-column">
+    <li class="nav-item"><a class="h3 nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">Profile</a></li>
+    <li class="nav-item"><a class="h3 nav-link @ManageNavPages.EmailNavClass(ViewContext)" id="email" asp-page="./Email">Email</a></li>
+    <li class="nav-item"><a class="h3 nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password" asp-page="./ChangePassword">Password</a></li>
+    <li class="nav-item"><a class="h3 nav-link @ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)" id="two-factor" asp-page="./TwoFactorAuthentication">Two-factor authentication</a></li>
+    <li class="nav-item"><a class="h3 nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data" asp-page="./PersonalData">Personal data</a></li>
+</ul>
+</div>
 
+
+    <div class="col-9">  
 <h3>@ViewData["Title"]</h3>
 <partial name="_StatusMessage" for="StatusMessage" />
-<div class="row">
-    <div class="col-md-6">
+
         <form id="profile-form" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div asp-validation-summary="ModelOnly" class="text-danger h3"></div>
             <div class="form-floating">
-                <input asp-for="Username" class="form-control" disabled />
-                <label asp-for="Username" class="form-label"></label>
+                <input asp-for="Username" class="form-control h3" disabled />
+                <label asp-for="Username" class="form-label h3">Username</label>
             </div>
             <div class="form-floating">
-                <input asp-for="Input.PhoneNumber" class="form-control" />
-                <label asp-for="Input.PhoneNumber" class="form-label"></label>
-                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                <input asp-for="Input.PhoneNumber" class="form-control h3" />
+                <label asp-for="Input.PhoneNumber" class="form-label h3">Phone Number</label>
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger h3"></span>
             </div>
-            <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">Save</button>
+            <button id="update-profile-button" type="submit" class="w-25 btn btn-lg btn-primary">Save</button>
         </form>
     </div>
 </div>
+
+ <partial name="/Views/Shared/_SidePartial.cshtml" />
+
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
