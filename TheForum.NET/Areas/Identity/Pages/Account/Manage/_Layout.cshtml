@@ -8,12 +8,27 @@
         Layout = "/Areas/Identity/Pages/_Layout.cshtml";
     }
 }
- 
-<h1>Manage your account</h1>
+  <div class="container-fluid" id="main-container">
+  <div class="container-fluid" id="breadcrumb">
+  <nav class="" aria-label="breadcrumb">
+    <ol class="breadcrumb bread-style align-text-bottom">
+      <li class="breadcrumb-item bread-item">
+        <a  asp-page="/Home/Index" class="text-decoration-none text-dark"
+          ><i class="fas fa-home"></i>Home</a>
+      </li>
+      <li class="breadcrumb-item bread-item active" aria-current="page">
+      <a  asp-page="/Account/Manage" >My Profile</a>  
+      </li>
+    </ol>
+  </nav>
+    </div>
+ <div class="row">
+       <div class="col-9"> 
+@*<h1>Manage your account</h1>
 
 <div>
     <h2>Change your account settings</h2>
-    <hr />
+    <hr />*@
     <div class="row">
         <div class="col-3">
             <partial name="_ManageNav" />
@@ -23,7 +38,7 @@
         </div>
     </div>
 </div>
-</div>
+
 <partial name="/Views/Shared/_SidePartial.cshtml" />
 
 @section Scripts {

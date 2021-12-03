@@ -1,38 +1,12 @@
 ﻿@page
 @model IndexModel
+
 @{
     ViewData["Title"] = "Profile";
     ViewData["ActivePage"] = ManageNavPages.Index;
 }
-  <div class="container-fluid" id="main-container">
-  <div class="container-fluid" id="breadcrumb">
-  <nav class="" aria-label="breadcrumb">
-    <ol class="breadcrumb bread-style align-text-bottom">
-      <li class="breadcrumb-item bread-item">
-        <a  asp-page="/Home/Index" class="text-decoration-none text-dark"
-          ><i class="fas fa-home"></i>Home</a>
-      </li>
-      <li class="breadcrumb-item bread-item active" aria-current="page">
-      <a  asp-page="/Account/Register" >My Profile</a>  
-      </li>
-    </ol>
-  </nav>
-      </div>
- <div class="row">
-       <div class="col-9">     
-      <div class="row">
-          <div class="col-3">
-              <ul class="nav nav-pills flex-column">
-    <li class="nav-item"><a class="h3 nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">Profile</a></li>
-    <li class="nav-item"><a class="h3 nav-link @ManageNavPages.EmailNavClass(ViewContext)" id="email" asp-page="./Email">Email</a></li>
-    <li class="nav-item"><a class="h3 nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password" asp-page="./ChangePassword">Password</a></li>
-    <li class="nav-item"><a class="h3 nav-link @ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)" id="two-factor" asp-page="./TwoFactorAuthentication">Two-factor authentication</a></li>
-    <li class="nav-item"><a class="h3 nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data" asp-page="./PersonalData">Personal data</a></li>
-</ul>
-</div>
-
-
-    <div class="col-9">  
+ 
+        
 <h3>@ViewData["Title"]</h3>
 <partial name="_StatusMessage" for="StatusMessage" />
 
@@ -49,10 +23,7 @@
             </div>
             <button id="update-profile-button" type="submit" class="w-25 btn btn-lg btn-primary">Save</button>
         </form>
-    </div>
-</div>
 
- <partial name="/Views/Shared/_SidePartial.cshtml" />
 
 
 

@@ -25,7 +25,7 @@ builder.Services.AddIdentity<ForumUser,IdentityRole>(options =>
     options.User.RequireUniqueEmail = true;
     
 })
-    .AddEntityFrameworkStores<TheForumContext>().AddDefaultTokenProviders();
+    .AddEntityFrameworkStores<TheForumContext>().AddDefaultTokenProviders().AddDefaultUI();
 
 builder.Services.AddAntiforgery(options =>
 {
