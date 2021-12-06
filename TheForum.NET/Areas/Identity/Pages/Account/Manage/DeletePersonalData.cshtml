@@ -18,9 +18,9 @@
         <div asp-validation-summary="ModelOnly" class="text-danger h3"></div>
         @if (Model.RequirePassword)
         {
-            <div class="form-floating">
+            <div class="form-group">
+                <label asp-for="Input.Password" class="h3"></label>
                 <input asp-for="Input.Password" class="form-control h3" autocomplete="current-password" aria-required="true" />
-                <label asp-for="Input.Password" class="form-label h3"></label>
                 <span asp-validation-for="Input.Password" class="text-danger h3"></span>
             </div>
         }
