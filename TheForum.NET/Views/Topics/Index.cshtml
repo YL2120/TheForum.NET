@@ -1,0 +1,136 @@
+﻿
+@{
+}
+
+<div class="container-fluid" id="main-container">
+  <div class="container-fluid" id="breadcrumb">
+  <nav class="" aria-label="breadcrumb">
+    <ol class="breadcrumb bread-style align-text-bottom">
+      <li class="breadcrumb-item bread-item">
+        <a  asp-page="/Home/Index class="text-decoration-none text-dark"
+          ><i class="fas fa-home"></i>Home</a>
+      </li>
+      <li class="breadcrumb-item bread-item" aria-current="page">
+        <a  asp-page="/Home/Index class="text-decoration-none text-dark">>Boards</a>
+      </li>
+      <li class="breadcrumb-item bread-item active" aria-current="page">
+        Topics
+      </li>
+    </ol>
+  </nav>
+      </div>
+        <div class="row">
+        <div class="col-md-9 col-sm col-lg-9">
+           <div class="container-fluid p-5">
+            <div class="row">
+              <div id="forum-rules" class="col-12 border-left border-danger p-3">
+                <h4 class="text-danger">Forum rules</h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 d-flex align-items-center justify-content-start m-4">
+
+                <a id="new-topic" class="h4 mr-5 text-white bg-primary p-3" href="new_topics.php">New Topic</a>
+                <form action="topics.php" method="GET" id="search-bar" class="form-inline flex-nowrap" name="search-bar">
+                  <input name="search" class="form-control w-100" type="search" placeholder="Search" aria-label="Search">
+                </form>
+              </div>
+            </div>
+            <div id="announcement" class="row table-responsive">
+      <table class="table">
+          <thead>
+              <tr>
+                  <td class="h3">Announcements</td>
+                  <td class="h3"></td>
+                  <td class="h3"><i class="fas fa-comments"></i></td>
+                  <td class="h3"><i class="fas fa-eye"></i></td>
+                  <td class="h3"><i class="fas fa-clock"></i></td>
+              </tr>
+          </thead>
+          <tbody class="bg-light">
+              <tr class="">
+                  <td class="d-flex h2 align-items-center">
+                    <i class="fas fa-bullhorn mr-5 p-3 border rounded-circle"></i>
+                    <div class="text flex-column">
+                        <h4>This is a global announcement!</h3>
+                        <h5>by Carla > in Unread Forum</h4>
+                    </div>
+
+                  </td>
+
+                  <td class="h4">
+                    <i class="fas fa-bullhorn"></i>  
+                  </td>
+
+                  <td class="">
+                    <h4 class="text-muted">203</h4>
+                  </td>
+
+                  <td class="">
+                    <h4 class="text-muted">5078</h4>
+                  </td>
+
+                  <td class="flex-column">
+                        <h4>by Carla <i class="fas fa-external-link-square-alt ml-3"></i></h4>
+                        <h5>Sun Oct 09, 2016 5:58 pm</h4>
+
+                  </td>
+              </tr>
+          </tbody>
+
+      </table>
+  </div>
+  <div id="topics" class="row table-responsive mt-5">
+    <table class="table">
+        <thead>
+            <tr>
+                <td class="h3">Topics</td>
+                <td class="h3"></td>
+                <td class="h3"><i class="fas fa-comments"></i></td>
+                <td class="h3"><i class="fas fa-eye"></i></td>
+                <td class="h3"><i class="fas fa-clock"></i></td>
+            </tr>
+        </thead>
+
+        
+         <tbody class="bg-light">
+           
+             <tr class="">
+                  <td class="d-flex h2 align-items-center">
+                    <i class="fas fa-folder mr-5 p-3 border rounded-circle"></i>
+                    <div class="text flex-column">
+                       <a href=""><h3><?php echo $top['TITLE'] ?></h3></a> 
+                        <h4> echo 'By '. $top['Nickname'] ?></h4>
+                    </div>
+
+                  </td>
+@*
+                  <td class=" h4">
+                      <?php 
+                      if($top['locked'] == "yes"){
+                        echo "<i class='fas fa-lock text-dark'></i>";
+                      }else if($top['locked'] == "no"){
+                        echo "<i class='fas fa-folder text-dark'></i>";
+
+                      }
+                        ?>  
+                  </td>*@
+
+                  <td class="m-3">
+                    <h4 class="text-muted"><?php print_r(Get_Post_Count ($top['Topic_Number'])) ;   ?> </h4>
+                  </td>
+
+                  <td class="m-3">
+                    <h4 class="text-muted"><?php print_r(display_view($top['TITLE'])) ?></h4>
+                  </td>
+
+                  <td class="flex-column">
+                        <h4><?php echo 'By '. $top['Nickname'] ?> <i class="fas fa-external-link-square-alt ml-3"></i></h4>
+                        <h4><?php echo  $top['Creation_Date'] ?></h4>
+
+                  </td>
+              </tr>
+            @*  <main class="mx-5">*@
+
+    </table>
+</div>
