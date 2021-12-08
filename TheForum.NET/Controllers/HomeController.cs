@@ -20,6 +20,8 @@ namespace TheForum.NET.Controllers
             this.boarddatalayer = boarddatalayer;
         }
 
+
+        
         public IActionResult Index()
         {
             return View(this.boarddatalayer.DisplayAll());
