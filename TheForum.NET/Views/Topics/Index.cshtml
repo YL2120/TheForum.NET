@@ -30,7 +30,7 @@
             <div class="row">
               <div class="col-12 d-flex align-items-center justify-content-start m-4">
 
-                <a id="new-topic" class="h4 me-5 text-white bg-primary p-3 text-decoration-none" href="new_topics.php">New Topic</a>
+                <a id="new-topic" class="h4 me-5 text-white bg-primary p-3 text-decoration-none"  asp-controller="Topics" asp-action="NewTopic">New Topic</a>
                 <form action="topics.php" method="GET" id="search-bar" class="form-inline flex-nowrap" name="search-bar">
                   <input name="search" class="form-control w-100" type="search" placeholder="Search" aria-label="Search">
                 </form>
@@ -150,7 +150,7 @@
                   
                   <div>
                       <div class="d-inline-block">
-                <a id="new-topic" class="h4 me-5 text-white bg-primary p-3 d-flex align-items-center text-decoration-none me-2" href="new_topics.php">New Topic</a>
+                <a id="new-topic" class="h4 me-5 text-white bg-primary p-3 d-flex align-items-center text-decoration-none me-2"  asp-controller="Topics" asp-action="NewTopic">New Topic</a>
                     </div>
                     <div class="d-inline-block">
                 <a id="topic-filter" class="h4 me-5 text-dark rounded border border-dark bg-light p-3" href="#"><i class="fas fa-sort-amount-down h2"></i></a>

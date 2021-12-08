@@ -12,8 +12,14 @@ namespace TheForum.NET.Controllers
             this.context = context;
         }
 
-        
-        public IActionResult Index()
+        [Route("Topics/Board/{id:int}")]
+        public IActionResult Index(int id)
+        {
+            
+            return View();
+        }
+
+        public ActionResult NewTopic()
         {
             return View();
         }

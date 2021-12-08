@@ -1,0 +1,65 @@
+﻿
+@{
+}
+
+<div class="container-fluid" id="main-container">
+  <div class="container-fluid" id="breadcrumb">
+  <nav class="" aria-label="breadcrumb">
+    <ol class="breadcrumb bread-style align-text-bottom">
+      <li class="breadcrumb-item bread-item">
+        <a asp-controller="Home" asp-action="Index" class="text-decoration-none text-dark"
+          ><i class="fas fa-home"></i>Home</a>
+      </li>
+      <li class="breadcrumb-item bread-item" aria-current="page">
+       <a class="text-decoration-none text-dark" asp-controller="Topics" asp-action="Index">Topics</a> 
+      </li>
+      <li class="breadcrumb-item bread-item active" aria-current="page">
+        New Topics
+      </li>
+    </ol>
+  </nav>
+      </div>
+      <div class="row">
+        <div class="col-md-9 col-sm col-lg-9">
+          <h1 class="mx-5">Topic Icon Demos</h1>
+          <div class="container-fluid p-5">
+            <div class="row">
+              <div id="forum-rules" class="col-12 border-left border-danger p-3">
+                <h4 class="text-danger">Forum rules</h4>
+              </div>
+            </div>
+            <div class="row">
+    <div class="col-12">
+      <h2 class="text-center mt-5 bg-info rounded border border-dark p-3 text-white">New Topic</h2>
+    <form method="POST" id="add-topic">
+      <div class="form-group">
+        <label class="h3" for="title">Title</label>
+        <input type="text" name="title" class="form-control" id="title" aria-describedby="title" placeholder="Enter Title" required>
+      </div>
+      <div class="form-group">
+        <label class="h3" for="content">Content</label>
+        <textarea type="text" name="content" class="form-control" id="content" placeholder="Content" required></textarea>
+      </div>
+      <div class="form-check">
+      <label class="h3 me-5" for="pet-select">Choose a board:</label>
+        <select class="form-select h3" aria-label=".form-select-lg example" name="board-name" id="board-name" required>
+            <option value="">--Please choose a Board--</option>
+            <?php require("../App/View/display_select_board.php");?>
+        </select>  
+    </div>
+      <button id="submit" type="submit" name="add-topic" class="btn btn-primary mt-5 w-25 h2">Submit</button>
+    </form>
+    </div>
+        
+
+    </div>
+  
+            <div class="row">
+              <div class="col-12 mt-5 d-flex">
+                <a id="return-board" class="h4 me-5 text-dark p-3" href="topics.php">&lt; Return to Board Index</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <partial name="_SidePartial" />
