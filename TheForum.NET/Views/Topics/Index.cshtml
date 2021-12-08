@@ -30,7 +30,7 @@
             <div class="row">
               <div class="col-12 d-flex align-items-center justify-content-start m-4">
 
-                <a id="new-topic" class="h4 mr-5 text-white bg-primary p-3 text-decoration-none me-2" href="new_topics.php">New Topic</a>
+                <a id="new-topic" class="h4 me-5 text-white bg-primary p-3 text-decoration-none" href="new_topics.php">New Topic</a>
                 <form action="topics.php" method="GET" id="search-bar" class="form-inline flex-nowrap" name="search-bar">
                   <input name="search" class="form-control w-100" type="search" placeholder="Search" aria-label="Search">
                 </form>
@@ -50,10 +50,10 @@
           <tbody class="bg-light">
               <tr class="">
                   <td class="d-flex h2 align-items-center">
-                    <i class="fas fa-bullhorn mr-5 p-3 border rounded-circle"></i>
+                    <i class="fas fa-bullhorn me-5 p-3 border rounded-circle"></i>
                     <div class="text flex-column">
-                        <h4>This is a global announcement!</h3>
-                        <h5>by Carla > in Unread Forum</h4>
+                        <h4>This is a global announcement!</h4>
+                        <h4>by Carla > in Unread Forum</h4>
                     </div>
 
                   </td>
@@ -71,7 +71,7 @@
                   </td>
 
                   <td class="flex-column">
-                        <h4>by Carla <i class="fas fa-external-link-square-alt ml-3"></i></h4>
+                        <h4>by Carla <i class="fas fa-external-link-square-alt ms-3"></i></h4>
                         <h5>Sun Oct 09, 2016 5:58 pm</h4>
 
                   </td>
@@ -95,17 +95,17 @@
         
          <tbody class="bg-light">
            
-             <tr class="">
+                <tr class="">
                   <td class="d-flex h2 align-items-center">
-                    <i class="fas fa-folder mr-5 p-3 border rounded-circle"></i>
+                    <i class="fas fa-folder me-5 p-3 border rounded-circle"></i>
                     <div class="text flex-column">
-                       <a href=""><h3><?php echo $top['TITLE'] ?></h3></a> 
-                        <h4> echo 'By '. $top['Nickname'] ?></h4>
+                       <a href="messages.php?topic_number=<?php echo $top['Topic_Number']; ?>" class="text-decoration-none"><h2>This </h2></a> 
+                        <h4>By Nickname</h4>
                     </div>
 
                   </td>
-@*
-                  <td class=" h4">
+
+                  @*<td class=" h4">
                       <?php 
                       if($top['locked'] == "yes"){
                         echo "<i class='fas fa-lock text-dark'></i>";
@@ -116,39 +116,65 @@
                         ?>  
                   </td>*@
 
-                  <td class="m-3">
-                    <h4 class="text-muted"><?php print_r(Get_Post_Count ($top['Topic_Number'])) ;   ?> </h4>
+                 
+
+                  <td class="h4">
+                    <i class="fas fa-bullhorn"></i>  
                   </td>
 
-                  <td class="m-3">
-                    <h4 class="text-muted"><?php print_r(display_view($top['TITLE'])) ?></h4>
+                  <td >
+                    <h4 class="text-muted">203 </h4>
+                  </td>
+
+                  <td>
+                    <h4 class="text-muted">5078</h4>
                   </td>
 
                   <td class="flex-column">
-                        <h4><?php echo 'By '. $top['Nickname'] ?> <i class="fas fa-external-link-square-alt ml-3"></i></h4>
-                        <h4><?php echo  $top['Creation_Date'] ?></h4>
+                        <h4>By Nickname <i class="fas fa-external-link-square-alt ms-3"></i></h4>
+                        <h4>Sun Oct 09, 2016 5:58 pm</h4>
 
                   </td>
+                  
               </tr>
-            <main class="mx-5">
+          
+           
 
-    </table>
+    
+     </tbody> 
+  
+       </table>
 </div>
 <div class="row">
-              <div class="col-12 mt-5 d-flex">
-                <a id="new-topic" class="h4 mr-5 text-white bg-primary p-3 d-flex align-items-center text-decoration-none me-2" href="new_topics.php">New Topic</a> <a id="topic-filter" class="h4 mr-5 text-dark rounded border border-dark bg-light p-3" href="#"><i class="fas fa-sort-amount-down h2"></i></a>
-                <ul class="d-flex align-items-center h3 ml-auto">
-                  <?php require "../App/View/count_topics.php" ?>
-                  <!-- <li class="list-unstyled">12 topics</li> -->
-                  <li class="ml-5">Page 1 of 1</li>
+              <div class="col-12 mt-5 d-flex justify-content-between ">
+                  
+                  <div>
+                      <div class="d-inline-block">
+                <a id="new-topic" class="h4 me-5 text-white bg-primary p-3 d-flex align-items-center text-decoration-none me-2" href="new_topics.php">New Topic</a>
+                    </div>
+                    <div class="d-inline-block">
+                <a id="topic-filter" class="h4 me-5 text-dark rounded border border-dark bg-light p-3" href="#"><i class="fas fa-sort-amount-down h2"></i></a>
+                    </div>
+                </div>
+                
+               
+                <ul class="d-flex align-items-center h3 ms-auto">
+                  
+                 <li class="list-unstyled">12 topics</li> 
+                  <li class="ms-5">Page 1 of 1</li>
                 </ul>
+               
               </div>
             </div>
             <div class="row">
-              <div class="col-12 mt-5 d-flex">
-                <a id="return-board" class="h4 mr-5 text-dark p-3 text-decoration-none" href="index.php">&lt; Return to Board Index</a> <a id="jump-to" class="h4 mr-5 text-dark bg-light p-3 ml-auto text-decoration-none" href="#">Jump to ^</a>
+              <div class="col-12 mt-5 d-flex justify-content-between">
+                <a id="return-board" class="h4 me-5 text-dark p-3 text-decoration-none" href="index.php">&lt; Return to Board Index</a>
+               
+                <a id="jump-to" class="h4 me-5 text-dark bg-light p-3 ms-auto text-decoration-none" href="#">Jump to ^</a> 
               </div>
             </div>
           </div>
         </div>
+       
     <partial name="_SidePartial" />
+    </div>
