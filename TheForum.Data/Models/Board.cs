@@ -10,12 +10,13 @@ namespace TheForum.Data.Models
 
        
         [Column(TypeName = "nvarchar(25)")]
-        public string Name { get; set; } = null!;
+        public string? Name { get; set; } 
 
         
         [Column(TypeName = "nvarchar(40)")]
-        public string Description { get; set; } = null!;
+        public string? Description { get; set; }
 
-        public byte[] Image { get; set; } = null!;
+
+        public byte[]? Image { get; set; } 
     }
 }
