@@ -16,6 +16,7 @@ builder.Services.AddMvc();
 builder.Services.AddRazorPages();
 
 builder.Services.AddTransient<BoardDataLayer, BoardDataLayer>();
+builder.Services.AddTransient<TopicDataLayer, TopicDataLayer>();
 builder.Services.AddTransient<IEmailSender, EmailSender>();
 
 builder.Services.AddDbContext<TheForumContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("TheForumContext")), ServiceLifetime.Scoped); // connection to the Db

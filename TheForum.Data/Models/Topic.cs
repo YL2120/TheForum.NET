@@ -13,9 +13,10 @@ namespace TheForum.Data.Models
         public string Title { get; set; } 
 
         [Required]
-        public string Content { get; set; } 
+        public string Content { get; set; }
 
-        public int Author_ID { get; set; }
+        [Column(TypeName = "nvarchar(25)")]
+        public string UserName { get; set; }
  
         public DateTime Creation_Date { get; set; } 
 
