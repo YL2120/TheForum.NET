@@ -10,17 +10,19 @@ namespace TheForum.NET.Controllers
 {
     public class TopicsController : Controller
     {
-        private readonly TheForumContext context;
+        
+        private readonly UserManager<ForumUser> _userManager;
         private BoardDataLayer boarddatalayer;
         private TopicDataLayer topicdatalayer;
-        private readonly UserManager<ForumUser> _userManager;
+        
 
-        public TopicsController(TheForumContext context, BoardDataLayer boarddatalayer, UserManager<ForumUser> userManager, TopicDataLayer topicdatalayer)
+        public TopicsController(UserManager<ForumUser> userManager,BoardDataLayer boarddatalayer,
+        TopicDataLayer topicdatalayer)
         {
-            this.context = context;
-            this.boarddatalayer = boarddatalayer;
             this._userManager = userManager;
+            this.boarddatalayer = boarddatalayer;
             this.topicdatalayer = topicdatalayer;
+            
         }
 
         [Route("Topics/Board/{id}")]
@@ -51,6 +53,7 @@ namespace TheForum.NET.Controllers
         //Send to the DB
 
         [HttpPost]
+        [Route("Topics/Board/AddTopic/{id}")]
         public ActionResult AddTopic(NewTopicViewModel topic)
         {
 

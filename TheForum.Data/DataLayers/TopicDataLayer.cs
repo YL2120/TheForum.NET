@@ -6,6 +6,7 @@ namespace TheForum.Data.DataLayers
     {
         private TheForumContext context;
 
+
         public TopicDataLayer(TheForumContext context)
         {
             this.context = context;

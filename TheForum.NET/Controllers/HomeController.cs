@@ -10,14 +10,14 @@ namespace TheForum.NET.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        private readonly TheForumContext context;
+        
         private BoardDataLayer boarddatalayer;
 
-        public HomeController(ILogger<HomeController> logger, TheForumContext context, BoardDataLayer boarddatalayer)
+        public HomeController(ILogger<HomeController> logger,  BoardDataLayer boarddatalayer)
         {
             _logger = logger;
-            this.context = context;
             this.boarddatalayer = boarddatalayer;
+            
         }
 
 
