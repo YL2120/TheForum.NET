@@ -12,7 +12,7 @@
           ><i class="fas fa-home"></i>Home</a>
       </li>
       <li class="breadcrumb-item bread-item" aria-current="page">
-        <a  asp-controller="Home" asp-action="Index" class="text-decoration-none text-dark">Boards</a>
+        <a  asp-controller="Home" asp-action="Index"  class="text-decoration-none text-dark">Boards</a>
       </li>
       <li class="breadcrumb-item bread-item active" aria-current="page">
         Topics
@@ -31,7 +31,7 @@
             <div class="row">
               <div class="col-12 d-flex align-items-center justify-content-start m-4">
 
-                <a id="new-topic" class="h4 me-5 text-white bg-primary p-3 text-decoration-none"  asp-controller="Topics" asp-action="AddTopic">New Topic</a>
+                <a id="new-topic" class="h4 me-5 text-white bg-primary p-3 text-decoration-none"  asp-controller="Topics" asp-action="AddTopic" asp-route-id=@ViewData["id"]>New Topic</a>
                 <form action="topics.php" method="GET" id="search-bar" class="form-inline flex-nowrap" name="search-bar">
                   <input name="search" class="form-control w-100" type="search" placeholder="Search" aria-label="Search">
                 </form>
@@ -154,7 +154,7 @@
                   
                   <div>
                       <div class="d-inline-block">
-                <a id="new-topic" class="h4 me-5 text-white bg-primary p-3 d-flex align-items-center text-decoration-none me-2"  asp-controller="Topics" asp-action="AddTopic">New Topic</a>
+                <a id="new-topic"  class="h4 me-5 text-white bg-primary p-3 d-flex align-items-center text-decoration-none me-2"  asp-controller="Topics" asp-action="AddTopic" asp-route-id=@ViewData["id"]>New Topic</a>
                     </div>
                     <div class="d-inline-block">
                 <a id="topic-filter" class="h4 me-5 text-dark rounded border border-dark bg-light p-3" href="#"><i class="fas fa-sort-amount-down h2"></i></a>
@@ -172,7 +172,7 @@
             </div>
             <div class="row">
               <div class="col-12 mt-5 d-flex justify-content-between">
-                <a id="return-board" class="h4 me-5 text-dark p-3 text-decoration-none" href="index.php">&lt; Return to Board Index</a>
+                <a id="return-board" class="h4 me-5 text-dark p-3 text-decoration-none" asp-controller="Home" asp-action="Index">&lt; Return to Board Index</a>
                
                 <a id="jump-to" class="h4 me-5 text-dark bg-light p-3 ms-auto text-decoration-none" href="#">Jump to ^</a> 
               </div>

@@ -21,7 +21,7 @@ namespace TheForum.Data.DataLayers
             return query.ToList();
         }
 
-        public void CreateTopic(Topic topic, string username,DateTime submit_date,string board_name)
+        public int CreateTopic(Topic topic, string username,DateTime submit_date,string board_name)
         {
             var board = this.context.Boards
                     .Where(b => b.Name == board_name)
@@ -38,6 +38,8 @@ namespace TheForum.Data.DataLayers
 
             this.context.Topics.Add(topic1);
             this.context.SaveChanges();
+
+            return board.Id;
         }
 
 

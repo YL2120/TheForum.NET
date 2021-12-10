@@ -12,7 +12,7 @@
           ><i class="fas fa-home"></i>Home</a>
       </li>
       <li class="breadcrumb-item bread-item" aria-current="page">
-       <a class="text-decoration-none text-dark" asp-controller="Topics" asp-action="Index"  asp-route-id=1>Topics</a> 
+       <a class="text-decoration-none text-dark" asp-controller="Topics" asp-action="Index" asp-route-id=@ViewData["id"]>Topics</a> 
       </li>
       <li class="breadcrumb-item bread-item active" aria-current="page">
         New Topics
