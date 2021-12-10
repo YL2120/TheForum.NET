@@ -26,8 +26,9 @@ namespace TheForum.NET.Controllers
         [Route("Topics/Board/{id:int}")]
         public IActionResult Index(int id)
         {
-            
-            return View();
+
+            List<Topic> result = this.topicdatalayer.DisplayAll(id);
+            return View(result);
         }
 
         //CREATIONS OF TOPIC

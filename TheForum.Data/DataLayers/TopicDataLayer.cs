@@ -11,6 +11,16 @@ namespace TheForum.Data.DataLayers
             this.context = context;
         }
 
+        public List<Topic> DisplayAll(int id)
+        {
+            var query = this.context.Topics
+                        .Where(t => t.BoardID == id);
+    
+                        
+
+            return query.ToList();
+        }
+
         public void CreateTopic(Topic topic, string username,DateTime submit_date,string board_name)
         {
             var board = this.context.Boards
