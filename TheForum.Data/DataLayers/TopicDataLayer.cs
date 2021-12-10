@@ -4,7 +4,7 @@ namespace TheForum.Data.DataLayers
 {
     public class TopicDataLayer
     {
-        private TheForumContext context;
+        private readonly TheForumContext context;
 
 
         public TopicDataLayer(TheForumContext context)

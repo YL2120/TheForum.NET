@@ -4,7 +4,7 @@ namespace TheForum.Data.DataLayers
 {
     public class BoardDataLayer
     {
-        private TheForumContext context;
+        private readonly TheForumContext context;
 
         public BoardDataLayer (TheForumContext context)
         {
